@@ -1,9 +1,9 @@
 import { AsyncStorage } from "react-native"
-import { setDummyData, DECKS_STORAGE_KEY } from "./_decks"
+import { setDeckData, DECKS_STORAGE_KEY } from "./_decks"
 
 export const getDecks = () => {
   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(results => {
-    return results === null ? setDummyData() : JSON.parse(results)
+    return results === null ? setDeckData() : JSON.parse(results)
   })
 }
 
@@ -37,3 +37,8 @@ export const submitCard = (card, id) => {
     )
   })
 }
+
+// Clearing LocalStorage - Used for development purpose
+// AsyncStorage.clear(()=>{
+//   alert('Cleared')
+// })

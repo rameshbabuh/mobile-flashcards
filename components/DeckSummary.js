@@ -12,13 +12,17 @@ const DeckSummary = ({ deck }) => {
 }
 
 const styles = StyleSheet.create({
-  deck: {},
+  deck: {
+    padding: 15
+  },
   title: {
-    fontSize: 50
+    fontSize: 28,
+    textAlign: "center"
   },
   total: {
     fontSize: 20,
-    color: gray
+    color: gray,
+    textAlign: "center"
   }
 }) 
 

@@ -3,52 +3,58 @@
 import { AsyncStorage } from "react-native"
 import { materialColor } from "./colors"
 
-// export const DECKS_STORAGE_KEY = "MyCards:decks"
 export const DECKS_STORAGE_KEY = "mobile-flashcards:decks"
 
-export const setDummyData = () => {
-  const dummyData = {
-    English: {
-      title: "English Words",
-      questions: [
-        {
-          question: "BLITHE",
-          answer: "joyful, cheerful, or without appropriate thought"
+export const setDeckData = () => {
+    const deckData = {
+        English: {
+            title: "English Words",
+            questions: [
+                {
+                    question: "BLITHE",
+                    answer: "joyful, cheerful, or without appropriate thought"
+                },
+                {
+                    question: "NUANCE",
+                    answer: "A subtle expression of meaning or quality"
+                },
+                {
+                    question: "FERVID",
+                    answer: "intensely emotional; feverish"
+                }
+            ],
+            color: materialColor()
         },
-        {
-          question: "NUANCE",
-          answer: "A subtle expression of meaning or quality"
+        Marvel: {
+            title: "ES6",
+            questions: [
+                {
+                    question: "let and const",
+                    answer: "let and const uses block scoping"
+                },
+                {
+                    question: "Webpack",
+                    answer: "Webpack is used to bundle javascript files that can be used in a browser."
+                }
+            ],
+            color: materialColor()
+        },
+        Game: {
+            title: "Frameworks",
+            questions: [
+                {
+                    question: "Popular Component based frameworks",
+                    answer: "Reactjs, Vuejs, Angular"
+                }
+            ],
+            color: materialColor()
         }
-      ],
-      color: materialColor()
-    },
-    Marvel: {
-      title: "Captain marvel",
-      questions: [
-        {
-          question: "Whatr ra",
-          answer:
-            "Marvel"
-        }
-      ],
-      color: materialColor()
-    },
-    Game: {
-      title: "Crick",
-      questions: [
-        {
-          question: "Crick",
-          answer: "kuchi"
-        }
-      ],
-      color: materialColor()
     }
-  }
-  AsyncStorage.removeItem(DECKS_STORAGE_KEY)
-    .catch(error => console.warn("error", error))
-    .then(() => {
-      AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData))
-    })
+    AsyncStorage.removeItem(DECKS_STORAGE_KEY)
+        .catch(error => console.warn("error", error))
+        .then(() => {
+            AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(deckData))
+        })
 
-  return dummyData
+    return deckData
 }

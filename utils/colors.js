@@ -7,6 +7,7 @@ export const blue = "#4e4cb8"
 export const lightPurp = "#7c53c3"
 export const pink = "#b93fb3"
 export const green = "#558b2f"
+export const bblue = '#247EEB'
 
 const pickRandomProperty = obj => {
   var result
@@ -44,7 +45,7 @@ export const materialColor = () => {
       "200": "#9fa8da"
     },
     blue: {
-      "50": "#e3f2fd",
+      "50": "#247EEB",
       "100": "#bbdefb",
       "200": "#90caf9"
     },
@@ -74,7 +75,7 @@ export const materialColor = () => {
       "200": "#c5e1a5"
     },
     lime: {
-      "50": "#f9fbe7",
+      "50": "#f9fbe7", 
       "100": "#f0f4c3",
       "200": "#e6ee9c"
     },

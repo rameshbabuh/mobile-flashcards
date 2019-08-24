@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, ScrollView, TouchableOpacity } from "react-native"
+import { ScrollView, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
 import { getDecks } from "../utils/api"
 import { receiveDecks } from "../actions"
