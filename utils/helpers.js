@@ -6,7 +6,7 @@ const NOTIFICATION_KEY = "MyFlashCards:notifications"
 
 export const getDailyReminderValue = () => {
   return {
-    today: "👋🏻 Don't forget to take a quiz today!"
+    today: "👋🏻 Don't forget to take a Quiz today!"
   }
 }
 
@@ -18,8 +18,8 @@ export const clearLocalNotification = () => {
 
 const createNotification = () => {
   return {
-    title: "Take a quiz",
-    body: "👋🏻 Don't forget to take a quiz today!",
+    title: "Take a Quiz",
+    body: "👋🏻 Don't forget to take a Quiz today!",
     ios: {
       sound: true
     },

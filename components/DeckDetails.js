@@ -44,7 +44,7 @@ class DeckDetails extends Component {
             style={styles.start}
             onPress={() => {
               clearLocalNotification().then(setLocalNotification)
-              this.props.navigation.navigate("Quiz", {
+              this.props.navigation.navigate("Question", {
                 deck: deck
               })
             }}

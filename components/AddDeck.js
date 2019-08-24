@@ -50,7 +50,7 @@ class AddDeck extends Component {
     return (
       <View style={[styles.container, { backgroundColor: this.state.color }]}>
         <Text style={styles.description}>
-          What is the title of your new deck?
+          Title of the new deck
         </Text>
         <TextInput
           multiline={false}

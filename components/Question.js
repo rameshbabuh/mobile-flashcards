@@ -1,22 +1,15 @@
 import React, { Component } from "react"
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-  Animated
-} from "react-native"
+import { Text, View, TouchableOpacity, StyleSheet, Animated } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 import { connect } from "react-redux"
-import { NavigationActions } from "react-navigation"
 import { white, green, red } from "../utils/colors"
 
-class Quiz extends Component {
+class Question extends Component {
   static navigationOptions = ({ navigation }) => {
     const { title } = navigation.state.params.deck
 
     return {
-      title: title + " Quiz"
+      title: title + " Question"
     }
   }
 
@@ -84,7 +77,7 @@ class Quiz extends Component {
     this.state.flipped && this.flipCard()
   }
 
-  resetQuiz = () => {
+  resetQuestion = () => {
     this.value >= 90 && this.flipCard()
 
     this.setState(() => ({
@@ -107,26 +100,26 @@ class Quiz extends Component {
           style={[styles.container, styles.center, { backgroundColor: color }]}
         >
           <Text style={{ fontSize: 20, textAlign: "center" }}>
-            🙁Sorry, you cannot take the a quiz because there are no cards in
+            🙁Sorry, you cannot take the a Question because there are no cards in
             the deck. Go back to the deck and create some cards!
           </Text>
         </View>
       )
     } else if (questionNo + 1 > questionsTotal) {
-      // Quiz completed
+      // Question completed
       return (
         <View
           style={[styles.container, styles.center, { backgroundColor: color }]}
         >
           <Text style={{ fontSize: 20, textAlign: "center" }}>
-            👏Well done! You completed the Quiz!
+            👏Well done! You completed the Question!
           </Text>
           <Text style={{ fontSize: 25, textAlign: "center" }}>
             Your score: {result}/{questionNo}
           </Text>
-          <TouchableOpacity onPress={() => this.resetQuiz()}>
+          <TouchableOpacity onPress={() => this.resetQuestion()}>
             <Text style={{ fontSize: 20, color: red, textAlign: "center" }}>
-              Re-start the quiz
+              Re-start the Question
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.goBack()}>
@@ -147,7 +140,7 @@ class Quiz extends Component {
     }
     return (
       <View style={[styles.container, { backgroundColor: color }]}>
-        <View style={styles.quizDetails}>
+        <View style={styles.QuestionDetails}>
           <Text>
             {this.state.questionNo + 1}/{questionsTotal}
           </Text>
@@ -230,7 +223,7 @@ const styles = StyleSheet.create({
   container: {
     height: "100%"
   },
-  quizDetails: {
+  QuestionDetails: {
     fontSize: 25,
     alignSelf: "flex-start"
   },
@@ -274,4 +267,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(mapStateToProps)(Quiz)
+export default connect(mapStateToProps)(Question)

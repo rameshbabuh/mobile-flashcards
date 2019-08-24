@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-nativ
 import { connect } from "react-redux"
 import { addCard } from "../actions"
 import { submitCard } from "../utils/api"
-import { purple, white } from "../utils/colors"
+import { teal, purple, white } from "../utils/colors"
 
 const SubmitButton = ({ onPress, disabled }) => {
     return (
@@ -57,7 +57,7 @@ class AddCard extends Component {
                     onChangeText={question => this.setState({ question })}
                     value={this.state.question}
                     placeholder={"Add a question"}
-                    placeholderTextColor={purple}
+                    placeholderTextColor={teal}
                 />
                 <TextInput
                     multiline={true}
@@ -66,7 +66,7 @@ class AddCard extends Component {
                     onChangeText={answer => this.setState({ answer })}
                     value={this.state.answer}
                     placeholder={"Add the answer"}
-                    placeholderTextColor={purple}
+                    placeholderTextColor={teal}
                 />
                 <SubmitButton
                     onPress={this.submit}
