@@ -27,7 +27,7 @@ export const submitDeck = deck => {
 
 export const submitCard = (card, id) => {
   getDeck(id).then(deck => {
-    deck.questions = deck.questions.concat(card)
+    deck.questions = deck.questions ? deck.questions.concat(card) : [] 
 
     return AsyncStorage.mergeItem(
       DECKS_STORAGE_KEY,
@@ -40,5 +40,5 @@ export const submitCard = (card, id) => {
 
 // Clearing LocalStorage - Used for development purpose
 // AsyncStorage.clear(()=>{
-  // alert('Cleared')
+//   alert('Cleared')
 // })

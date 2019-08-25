@@ -8,7 +8,7 @@ export const DECKS_STORAGE_KEY = "mobile-flashcards:decks"
 export const setDeckData = () => {
     const deckData = {
         English: {
-            title: "English Words",
+            title: "English",
             questions: [
                 {
                     question: "BLITHE",
