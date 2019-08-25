@@ -6,7 +6,7 @@ const DeckSummary = ({ deck }) => {
   return (
     <View style={[styles.deck, { backgroundColor: deck.color }]}>
       <Text style={styles.title}>{deck.title}</Text>
-      <Text style={styles.total}>{deck.questions.length} card(s)</Text>
+      <Text style={styles.total}>{deck.questions.length > 1 ? "Cards" : "Card"}</Text>
     </View>
   )
 }

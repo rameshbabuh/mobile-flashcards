@@ -45,6 +45,12 @@ class AddCard extends Component {
         this.props.goBack()
     }
 
+    handleChange = ({value, label}) => {
+        this.setState({
+          [label]: value
+        })
+    }
+
     render() {
         const { deckColor } = this.props
 
@@ -57,7 +63,8 @@ class AddCard extends Component {
                         multiline={true}
                         numberOfLines={3}
                         style={styles.input}
-                        onChangeText={question => this.setState({ question })}
+                        // onChangeText={question => this.setState({ question })}
+                        onChangeText={question => this.handleChange({ value: question, label: 'question' })}
                         value={this.state.question}
                         placeholder={"Type a question"}
                         placeholderTextColor={teal}
@@ -66,7 +73,8 @@ class AddCard extends Component {
                         multiline={true}
                         numberOfLines={3}
                         style={styles.input}
-                        onChangeText={answer => this.setState({ answer })}
+                        // onChangeText={answer => this.setState({ answer })}
+                        onChangeText={answer => this.handleChange({ value: answer, label: 'answer' })}
                         value={this.state.answer}
                         placeholder={"Type the answer"}
                         placeholderTextColor={teal}
