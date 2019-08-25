@@ -37,27 +37,27 @@ To get started developing right away:
 
   
 
-![image](/src/screenshots/Home.png?raw=true "Home")
+![image](/screenshots/Home.png?raw=true "Home")
 
   
 
-![image](/src/screenshots/DeckPage.png?raw=true "DeckPage")
+![image](/screenshots/DeckPage.png?raw=true "DeckPage")
 
   
 
-![image](/src/screenshots/QuestionPage1.png?raw=true "QuestionPage1")
+![image](/screenshots/QuestionPage1.png?raw=true "QuestionPage1")
 
   
 
-![image](/src/screenshots/QuestionPage2.png?raw=true "QuestionPage2")
+![image](/screenshots/QuestionPage2.png?raw=true "QuestionPage2")
 
   
 
-![image](/src/screenshots/NewDeck.png?raw=true "New Deck")
+![image](/screenshots/NewDeck.png?raw=true "New Deck")
 
 
 
-![image](/src/screenshots/NewCard.png?raw=true "New Deck")
+![image](/screenshots/NewCard.png?raw=true "New Deck")
 
   
 
