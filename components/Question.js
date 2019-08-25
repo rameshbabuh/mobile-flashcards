@@ -141,11 +141,6 @@ class Question extends Component {
     }
     return (
       <View style={[styles.container, { backgroundColor: color }]}>
-        <View style={styles.QuestionDetails}>
-          <Text>
-            {this.state.questionNo + 1}/{questionsTotal}
-          </Text>
-        </View>
         <View
           style={{
             flex: 1,
@@ -170,6 +165,11 @@ class Question extends Component {
               <View />
             </Animated.View>
           </View>
+        </View>
+        <View style={styles.QuestionDetails}>
+          <Text>
+            {this.state.questionNo + 1}/{questionsTotal}
+          </Text>
         </View>
         <View style={styles.row}>
         <TouchableOpacity
@@ -226,14 +226,14 @@ const styles = StyleSheet.create({
   },
   QuestionDetails: {
     fontSize: 25,
-    alignSelf: "flex-start"
+    alignSelf: "center"
   },
   card: {
     alignSelf: "center",
     alignItems: "center",
     padding: 30,
-    height: 630,
-    width: 430,
+    height: 175,
+    width: 300, 
     justifyContent: "center",
     backgroundColor: white,
     borderRadius: 5,
