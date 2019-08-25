@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 22,
         backgroundColor: white,
-        opacity: 0.7,
+        opacity: 0.6,
         borderRadius: 4,
         padding: 10
     },

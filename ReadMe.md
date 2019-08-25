@@ -59,6 +59,11 @@ To get started developing right away:
 
 ![image](/screenshots/NewCard.png?raw=true "New Deck")
 
+
+##Platforms
+
+This application has been developed and testing using ios simultor-xCode and Android simulator-Genymotion.
+
   
 
 ## License
