@@ -1,9 +1,9 @@
 import React, { Component } from "React"
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from "react-native"
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native"
 import { connect } from "react-redux"
 import { addCard } from "../actions"
 import { submitCard } from "../utils/api"
-import { teal, purple, white } from "../utils/colors"
+import { teal, white, bblue } from "../utils/colors"
 
 const SubmitButton = ({ onPress, disabled }) => {
     return (
@@ -12,7 +12,7 @@ const SubmitButton = ({ onPress, disabled }) => {
             onPress = {onPress}
             disabled = {disabled}
         >
-            <Text style={styles.submitBtnText}>SUBMIT</Text>
+            <Text style={styles.submitBtnText}>Submit</Text>
         </TouchableOpacity>
     )
 }
@@ -50,28 +50,32 @@ class AddCard extends Component {
 
         return (
             <View style={[styles.container, { backgroundColor: deckColor }]}>
-                <TextInput
-                    multiline={true}
-                    numberOfLines={3}
-                    style={styles.input}
-                    onChangeText={question => this.setState({ question })}
-                    value={this.state.question}
-                    placeholder={"Add a question"}
-                    placeholderTextColor={teal}
-                />
-                <TextInput
-                    multiline={true}
-                    numberOfLines={3}
-                    style={styles.input}
-                    onChangeText={answer => this.setState({ answer })}
-                    value={this.state.answer}
-                    placeholder={"Add the answer"}
-                    placeholderTextColor={teal}
-                />
-                <SubmitButton
-                    onPress={this.submit}
-                    disabled={this.state.question === "" || this.state.answer === ""}
-                />
+                <KeyboardAvoidingView 
+                    style = {{ flex: 1 }}
+                    behavior = "padding">
+                    <TextInput
+                        multiline={true}
+                        numberOfLines={3}
+                        style={styles.input}
+                        onChangeText={question => this.setState({ question })}
+                        value={this.state.question}
+                        placeholder={"Type a question"}
+                        placeholderTextColor={teal}
+                    />
+                    <TextInput
+                        multiline={true}
+                        numberOfLines={3}
+                        style={styles.input}
+                        onChangeText={answer => this.setState({ answer })}
+                        value={this.state.answer}
+                        placeholder={"Type the answer"}
+                        placeholderTextColor={teal}
+                    />
+                    <SubmitButton
+                        onPress={this.submit}
+                        disabled={this.state.question === "" || this.state.answer === ""}
+                    />
+                </KeyboardAvoidingView>
             </View>
         )
     }
@@ -99,10 +103,12 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 22,
         backgroundColor: white,
-        opacity: 0.7
+        opacity: 0.7,
+        borderRadius: 4,
+        padding: 10
     },
     androidSubmitButton: {
-        backgroundColor: purple,
+        backgroundColor: bblue,
         padding: 10,
         borderRadius: 5,
         height: 45,

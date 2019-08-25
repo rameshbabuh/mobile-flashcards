@@ -25,7 +25,7 @@ export const setDeckData = () => {
             ],
             color: materialColor()
         },
-        Marvel: {
+        ES6: {
             title: "ES6",
             questions: [
                 {
@@ -39,7 +39,7 @@ export const setDeckData = () => {
             ],
             color: materialColor()
         },
-        Game: {
+        Frameworks: {
             title: "Frameworks",
             questions: [
                 {

@@ -40,5 +40,5 @@ export const submitCard = (card, id) => {
 
 // Clearing LocalStorage - Used for development purpose
 // AsyncStorage.clear(()=>{
-//   alert('Cleared')
+  // alert('Cleared')
 // })

@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Text, View, TouchableOpacity, StyleSheet, Animated } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 import { connect } from "react-redux"
-import { white, green, red } from "../utils/colors"
+import { white, green, red, bblue } from "../utils/colors"
 
 class Question extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -100,31 +100,32 @@ class Question extends Component {
           style={[styles.container, styles.center, { backgroundColor: color }]}
         >
           <Text style={{ fontSize: 20, textAlign: "center" }}>
-            🙁Sorry, you cannot take the a Question because there are no cards in
-            the deck. Go back to the deck and create some cards!
+            Sorry, there are no cards in the deck. Go back to the deck and create some cards!
           </Text>
         </View>
       )
     } else if (questionNo + 1 > questionsTotal) {
-      // Question completed
       return (
         <View
           style={[styles.container, styles.center, { backgroundColor: color }]}
         >
           <Text style={{ fontSize: 20, textAlign: "center" }}>
-            👏Well done! You completed the Question!
+            Good job! You finished this quiz.
+          </Text>
+          <Text style={{ fontSize: 20, textAlign: "center" }}>
+            👏
           </Text>
           <Text style={{ fontSize: 25, textAlign: "center" }}>
             Your score: {result}/{questionNo}
           </Text>
           <TouchableOpacity onPress={() => this.resetQuestion()}>
-            <Text style={{ fontSize: 20, color: red, textAlign: "center" }}>
-              Re-start the Question
+            <Text style={{ fontSize: 20, color: bblue, textAlign: "center", padding: 10 }}>
+              Restart quiz
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.goBack()}>
-            <Text style={{ fontSize: 20, color: red, textAlign: "center" }}>
-              Back to the deck
+            <Text style={{ fontSize: 20, color: bblue, textAlign: "center" }}>
+              Back to deck
             </Text>
           </TouchableOpacity>
         </View>
@@ -171,6 +172,30 @@ class Question extends Component {
           </View>
         </View>
         <View style={styles.row}>
+        <TouchableOpacity
+            style={styles.incorrect}
+            onPress={() => this.answerQuestion("incorrect")}
+          >
+            <View style={[styles.iconContainer, { backgroundColor: red }]}>
+              <MaterialIcons name="close" style={{ color: white }} size={35} />
+            </View>
+            <Text>Incorrect</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity>
+            <Text
+              style={{
+                textAlign: "center",
+                color: bblue,
+                fontSize: 20,
+                width: 100
+              }}
+              onPress={() => this.flipCard()}
+            >
+              {this.state.flipped ? "Show Question" : "Show Answer"}
+            </Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={styles.correct}
             onPress={() => this.answerQuestion("correct")}
@@ -179,30 +204,6 @@ class Question extends Component {
               <MaterialIcons name="check" style={{ color: white }} size={35} />
             </View>
             <Text>Correct</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text
-              style={{
-                textAlign: "center",
-                color: red,
-                fontSize: 20,
-                width: 100
-              }}
-              onPress={() => this.flipCard()}
-            >
-              {this.state.flipped ? "See question" : "See answer"}
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.incorrect}
-            onPress={() => this.answerQuestion("incorrect")}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: red }]}>
-              <MaterialIcons name="close" style={{ color: white }} size={35} />
-            </View>
-            <Text>Incorrect</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   main: {
-    fontSize: 50,
+    fontSize: 30,
     textAlign: "center"
   },
   row: {

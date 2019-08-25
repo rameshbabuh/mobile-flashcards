@@ -4,12 +4,13 @@ import {
   View,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native"
 import { submitDeck } from "../utils/api"
 import { connect } from "react-redux"
 import { addDeck } from "../actions"
-import { purple, white, materialColor } from "../utils/colors"
+import { purple, white, materialColor, bblue } from "../utils/colors"
 
 const SubmitButton = ({ onPress, disabled }) => {
   return (
@@ -49,22 +50,26 @@ class AddDeck extends Component {
   render() {
     return (
       <View style={[styles.container, { backgroundColor: this.state.color }]}>
-        <Text style={styles.description}>
-          Title of the new deck
-        </Text>
-        <TextInput
-          multiline={false}
-          numberOfLines={3}
-          style={styles.input}
-          onChangeText={title => this.setState({ title })}
-          value={this.state.title}
-          placeholder={"Deck Title"}
-          placeholderTextColor={purple}
-        />
-        <SubmitButton
-          onPress={this.submit}
-          disabled={this.state.title === ""}
-        />
+        <KeyboardAvoidingView 
+          style = {{ flex: 1 }}
+          behavior = "padding">
+            <Text style={styles.description}>
+              Title of the new deck
+            </Text>
+            <TextInput
+              multiline={false}
+              numberOfLines={3}
+              style={styles.input}
+              onChangeText={title => this.setState({ title })}
+              value={this.state.title}
+              placeholder={"Type Deck Title"}
+              placeholderTextColor={purple}
+            />
+            <SubmitButton
+              onPress={this.submit}
+              disabled={this.state.title === ""}
+            />
+          </KeyboardAvoidingView>
       </View>
     )
   }
@@ -88,10 +93,11 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: purple,
-    borderRadius: 6
+    borderRadius: 4,
+    padding: 10
   },
   androidSubmitButton: {
-    backgroundColor: purple,
+    backgroundColor: bblue,
     padding: 10,
     borderRadius: 5,
     height: 45,

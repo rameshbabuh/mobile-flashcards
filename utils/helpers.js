@@ -29,7 +29,7 @@ const createNotification = () => {
       sticky: false,
       vibrate: true
     }
-  }
+  } 
 }
 
 export const setLocalNotification = () => {

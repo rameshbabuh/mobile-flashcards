@@ -48,7 +48,8 @@ const Tabs = createMaterialTopTabNavigator(
     },
     {
         navigationOptions: {
-            header: null
+            header: null,
+            color: Platform.OS === "ios" ? white : purple
         },
         tabBarOptions: {
             activeTintColor: Platform.OS === "ios" ? green : white,
@@ -132,3 +133,5 @@ export default class App extends React.Component {
         )
     }
 }
+
+console.disableYellowBox = true;

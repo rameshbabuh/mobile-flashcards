@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
 import { MaterialIcons } from "@expo/vector-icons"
-import { gray, blue, white, green } from "../utils/colors"
+import { gray, blue, white, green, purple } from "../utils/colors"
 import { clearLocalNotification, setLocalNotification } from "../utils/helpers"
 
 class DeckDetails extends Component {
@@ -31,11 +31,11 @@ class DeckDetails extends Component {
               })
             }
           >
-            <View style={[styles.iconContainer, { backgroundColor: green }]}>
+            <View style={[styles.iconContainer, { backgroundColor: purple }]}>
               <MaterialIcons
-                name="note-add"
+                name="playlist-add"
                 style={{ color: white }}
-                size={35}
+                size={40}
               />
             </View>
             <Text style={styles.add}>Add new card</Text>
@@ -49,11 +49,11 @@ class DeckDetails extends Component {
               })
             }}
           >
-            <View style={[styles.iconContainer, { backgroundColor: blue }]}>
+            <View style={[styles.iconContainer, { backgroundColor: green }]}>
               <MaterialIcons
                 name="play-arrow"
                 style={{ color: white }}
-                size={35}
+                size={40}
               />
             </View>
             <Text style={styles.start}>Start Quiz</Text>
@@ -94,9 +94,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around"
   },
-  add: { color: green, fontSize: 25, alignItems: "center" },
+  add: { color: purple, fontSize: 25, alignItems: "center" },
   start: {
-    color: blue,
+    color: green,
     fontSize: 25,
     alignItems: "center"
   },
