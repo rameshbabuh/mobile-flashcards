@@ -43,12 +43,12 @@ export const setLocalNotification = () => {
 
             let tomorrow = new Date()
             tomorrow.setDate(tomorrow.getDate() + 1)
-            tomorrow.setHours(10)
-            tomorrow.setMinutes(30)
+            tomorrow.setHours(20)
+            tomorrow.setMinutes(0)
 
             Notifications.scheduleLocalNotificationAsync(createNotification(), {
               time: tomorrow,
-              repeat: "minute"
+              repeat: "day"
             })
 
             AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true))

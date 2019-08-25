@@ -44,7 +44,11 @@ class AddDeck extends Component {
 
     this.props.dispatch(addDeck(deck))
 
-    this.props.goBack()
+    // this.props.goBack()
+    /* Navigating to the newly created deck */
+    this.props.navigation.navigate("DeckDetails", {
+      title: deck.title
+    })
   }
 
   render() {

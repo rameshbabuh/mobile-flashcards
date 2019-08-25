@@ -3,8 +3,9 @@ import { Text, View, TouchableOpacity, StyleSheet, Animated } from "react-native
 import { MaterialIcons } from "@expo/vector-icons"
 import { connect } from "react-redux"
 import { white, green, red, bblue } from "../utils/colors"
+import { clearLocalNotification, setLocalNotification } from "../utils/helpers"
 
-class Question extends Component {
+class Question extends Component { 
   static navigationOptions = ({ navigation }) => {
     const { title } = navigation.state.params.deck
 
@@ -87,6 +88,11 @@ class Question extends Component {
     }))
   }
 
+  clearTodaysNotification = () => {
+    clearLocalNotification()
+      .then(setLocalNotification)
+  }
+
   render() {
     const deck = this.props.deck
     const { questions, color } = deck
@@ -105,6 +111,7 @@ class Question extends Component {
         </View>
       )
     } else if (questionNo + 1 > questionsTotal) {
+      this.clearTodaysNotification() //Clearing notification for the day and setting it for the next day
       return (
         <View
           style={[styles.container, styles.center, { backgroundColor: color }]}
